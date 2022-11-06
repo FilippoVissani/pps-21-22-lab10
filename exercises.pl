@@ -32,3 +32,33 @@ size([], 0).
 size([_|T], N) :- size(T, N2), N is N2 + 1.
 
 % exercise 2.2
+% size ( List , Size )
+% Size will contain the number of elements in List,
+% written using notation zero, s(zero), s(s(zero)) ...
+size([], zero).
+size([_|T], s(N)) :- size(T, N).
+
+% exercise 2.3
+% sum(List, Sum)
+% sum([1, 2, 3], X). → yes
+sum([], 0).
+sum([H|T], N) :- sum(T, N2), N is N2 + H.
+
+% exercise 2.4
+% average(List, Average)
+% it uses average(List, Count, Sum, Average)
+average(L, A) :- average(L, 0, 0, A).
+average([], C, S, A) :- A is S / C.
+average([H|T], C, S, A) :-
+	C2 is C + 1,
+	S2 is S + H,
+	average(T, C2, S2, A).
+
+% exercise 2.5
+% max(List, Max)
+% Max is the biggest element in List
+% Suppose the list has at least one element
+max(N1, N2, N2) :- N2 >= N1.
+max([H], H).
+max([H|T], M) :- max(T, M2), max(H, M2, M).
+
