@@ -26,3 +26,9 @@ search_anytwo(E, [E|T]) :- search(E, T).
 search_anytwo(E, [_|T]) :- search_anytwo(E, T).
 
 % exercise 2.1
+% size(List, Size)
+% Size will contain the number of elements in List
+size([], 0).
+size([_|T], N) :- size(T, N2), N is N2 + 1.
+
+% exercise 2.2
