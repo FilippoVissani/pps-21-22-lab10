@@ -74,3 +74,9 @@ maxMin([H|T], Max, Min) :-
 	maxMin(T, Max2, Min2),
 	max(H, Max2, Max),
 	min(H, Min2, Min).
+
+% exercise 3.1
+% same(List1, List2)
+% are the two lists exactly the same?
+same([], []).
+same([H|T], [H|T2]) :- same(T, T2).
