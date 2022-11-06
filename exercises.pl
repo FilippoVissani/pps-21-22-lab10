@@ -80,3 +80,10 @@ maxMin([H|T], Max, Min) :-
 % are the two lists exactly the same?
 same([], []).
 same([H|T], [H|T2]) :- same(T, T2).
+
+% exercise 3.2
+% all_bigger(List1, List2)
+% all elements in List1 are bigger than those in List2, 1 by 1
+% example: all_bigger([10, 20, 30, 40], [9, 19, 29, 39]).
+all_bigger([H1], [H2]) :- H1 > H2.
+all_bigger([H1|T1], [H2|T2]) :- H1 > H2, all_bigger(T1, T2).
