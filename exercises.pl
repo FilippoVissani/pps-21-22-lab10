@@ -87,3 +87,16 @@ same([H|T], [H|T2]) :- same(T, T2).
 % example: all_bigger([10, 20, 30, 40], [9, 19, 29, 39]).
 all_bigger([H1], [H2]) :- H1 > H2.
 all_bigger([H1|T1], [H2|T2]) :- H1 > H2, all_bigger(T1, T2).
+
+% exercise 3.3
+% sublist(List1, List2)
+% List1 should contain elements all also in List2
+% example: sublist([1, 2], [5, 3, 2, 1]).
+sublist([], L).
+sublist([H|T], L) :- search(H, L), sublist(T, L).
+
+% exercise 4.1
+% seq(N, List)
+% example: seq(5, [0, 0, 0, 0, 0]).
+seq(0,[]).
+seq(N, [0|T]) :- N2 is N - 1 , seq(N2, T).
