@@ -62,3 +62,15 @@ max(N1, N2, N2) :- N2 >= N1.
 max([H], H).
 max([H|T], M) :- max(T, M2), max(H, M2, M).
 
+% exercise 2.6
+% maxMin(List, Max, Min)
+% Max is the biggest element in List
+% Min is the smallest element in List
+% Suppose the list has at least one element
+min(N1, N2, N2) :- N1 >= N2.
+min(N1, N2, N1) :- N2 >= N1.
+maxMin([H], H, H).
+maxMin([H|T], Max, Min) :-
+	maxMin(T, Max2, Min2),
+	max(H, Max2, Max),
+	min(H, Min2, Min).
