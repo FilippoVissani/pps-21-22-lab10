@@ -99,4 +99,10 @@ sublist([H|T], L) :- search(H, L), sublist(T, L).
 % seq(N, List)
 % example: seq(5, [0, 0, 0, 0, 0]).
 seq(0,[]).
-seq(N, [0|T]) :- N2 is N - 1 , seq(N2, T).
+seq(N, [0|T]) :- N2 is N - 1, seq(N2, T).
+
+% exercise 4.2
+% seqR(N, List)
+% example: seqR(4, [4, 3, 2, 1, 0]).
+seqR(0, []).
+seqR(N, [N|T]) :- N2 is N - 1, seqR(N2, T).
