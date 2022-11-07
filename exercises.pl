@@ -110,5 +110,8 @@ seqR(N, [N|T]) :- N2 is N - 1, seqR(N2, T).
 % exercise 4.3
 % seqR2(N, List)
 % example: seqR2(4, [0, 1, 2, 3, 4]).
-last([H], E, [H, E]).
+last([], E, [E]).
 last([H|T], E, [H|T2]) :- last(T, E, T2).
+
+seqR2(0, [0]).
+seqR2(N, L) :- N2 is N - 1, seqR2(N2, L2), last(L2, N, L).
